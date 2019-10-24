@@ -1,7 +1,7 @@
 import random
 
 # Mohamed Bagayoko
-# October 21 2019
+# October 24 2019
 # Craps! Game
 
 
@@ -92,5 +92,5 @@ bankroll()
 rule_input()
 roll()
 
-
+# test
 
