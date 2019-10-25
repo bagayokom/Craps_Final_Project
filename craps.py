@@ -51,7 +51,6 @@ def roll():
     second_dice = 0
     both_dice = 0
     keep_going = True
-    keep_going2 = True
     while keep_going:
         first_dice = random.randint(1, 6)
         print(f"Your first dice rolled a: {first_dice}")
@@ -69,7 +68,7 @@ def roll():
             print("You win!")
             keep_going = False
         else:
-            while keep_going2:
+            while keep_going:
                 print(f"Your set point is {point}.")
                 print("Enter anything to continue")
                 input("> ")
@@ -81,16 +80,31 @@ def roll():
                 print(f"You rolled a {second_dice}")
                 both_dice = first_dice + second_dice
                 print(f"You total is a {both_dice}")
+                if both_dice == 7:
+                    print("You lose!")
+                    keep_going = False
+                    print(decision_maker())
                 if both_dice == point:
                     print("You win!")
                     keep_going = False
+                    print(decision_maker())
                 if both_dice != point:
-                    print("You need to keep going..")
+                    print(decision_maker())
+                    keep_going = True
+
+
+def decision_maker():
+    decision = int(input())
+    print("""Do you want to keep going?
+(Enter 1 for Yes/ 2 for No""")
+    if decision == 1:
+        bankroll()
+        if decision == 2:
+            print("Have a good day then!")
+            keep_going = False
 
 
 bankroll()
 rule_input()
 roll()
-
-# test
 
