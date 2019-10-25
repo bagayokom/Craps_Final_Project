@@ -1,7 +1,7 @@
 import random
 
 # Mohamed Bagayoko
-# October 24 2019
+# October 25 2019
 # Craps! Game
 
 
@@ -60,7 +60,7 @@ def roll():
         print(f"Your second dice rolled a: {second_dice}")
         both_dice = first_dice + second_dice
         point = both_dice
-        print(f"Your dice total is a: {both_dice}!")
+        print(f"----Your dice total is a: {both_dice}----")
         if both_dice == 2 or both_dice == 3 or both_dice == 12:
             print("You lose!")
             keep_going = False
@@ -73,38 +73,36 @@ def roll():
                 print("Enter anything to continue")
                 input("> ")
                 first_dice = random.randint(1, 6)
-                print(f"You rolled a {first_dice}")
+                print(f"Your first roll is a {first_dice}")
                 print("Enter anything to continue")
                 input("> ")
                 second_dice = random.randint(1, 6)
-                print(f"You rolled a {second_dice}")
+                print(f"Your second roll is a {second_dice}")
                 both_dice = first_dice + second_dice
-                print(f"You total is a {both_dice}")
+                print(f"----You total is a {both_dice}----")
                 if both_dice == 7:
                     print("You lose!")
                     keep_going = False
-                    print(decision_maker())
                 if both_dice == point:
                     print("You win!")
                     keep_going = False
-                    print(decision_maker())
-                if both_dice != point:
-                    print(decision_maker())
-                    keep_going = True
 
 
-def decision_maker():
-    decision = int(input())
-    print("""Do you want to keep going?
-(Enter 1 for Yes/ 2 for No""")
-    if decision == 1:
+def decision():
+    decision = 1
+    decision2 = True
+    while decision == 1:
         bankroll()
+        rule_input()
+        roll()
+        print("""Do you want to keep going? 
+(Enter 1 for Yes/ 2 for No)""")
+        decision = int(input())
         if decision == 2:
-            print("Have a good day then!")
+            print("Have a good day!")
             keep_going = False
 
+decision()
 
-bankroll()
-rule_input()
-roll()
+
 
